@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { DEFAULT_MIN_VERSION } from "tls";
 
 const config: Config = {
   content: [
@@ -11,7 +12,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-      },
+        'violet-dark':{
+          DEFAULT: '#0E001D',
+          foreground: '#FFF',
+        }
+      },    
     },
   },
   plugins: [],
