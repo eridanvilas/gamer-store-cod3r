@@ -1,20 +1,32 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import { resolve } from 'path';
-import { Product, products } from 'src/core';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Product } from 'src/core';
+import { ProductPrisma } from './product.prisma';
 
 @Controller('api/product')
 export class ProductController {
+
+  constructor(readonly repo: ProductPrisma){}
+
   @Get()
   async getAllProduct(): Promise<Product[]> {
-    return products.map((item) => ({
-      ...item,
-      specifications: { highlight: item.specifications.highlight },
-    }));
+    const listProduct = await this.repo.getAllProduct();
+    return listProduct;
+  }
+
+  @Post()
+  async insertOrUpdate(@Body() product: Product): Promise<void> {
+    return await this.repo.insertOrUpdate(product);
   }
 
   @Get(':id')
   async getById(@Param('id') id: string): Promise<Product | null> {
-    const product = products.find((product) => product.id === +id);
+    const product = await  this.repo.getById(+id);
+    return product ?? null; 
+  }
+
+  @Delete(':id')
+  async delete(@Param('id') id: string): Promise<void> {
+    const product = await  this.repo.delete(+id);
     return product ?? null; 
   }
 }
