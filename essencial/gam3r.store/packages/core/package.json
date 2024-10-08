@@ -1,0 +1,22 @@
+{
+  "name": "@gstore/core",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --minify",
+    "dev": "tsup src/index.ts --dts --watch",
+    "test": "jest --watchAll --collectCoverage"
+  },
+  "keywords": [],
+  "author": "Eridan Vilasboas Batista",
+  "license": "ISC",
+  "description": "core",
+  "devDependencies": {
+    "tsup": "^8.2.4",
+     "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
