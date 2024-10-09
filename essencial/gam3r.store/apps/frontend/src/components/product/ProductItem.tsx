@@ -4,6 +4,7 @@ import { Product } from "@gstore/core";
 import Link from "next/link";
 import Image from "next/image";
 import { IconShoppingCartPlus } from "@tabler/icons-react";
+import AssessmentReview from "../shared/AssessmentReview";
 
 export interface ProductItemProps {
   product: Product;
@@ -17,6 +18,9 @@ export default function ProductItem(props: ProductItemProps) {
       href={`/product/${product.id}`}
       className="flex flex-col bg-violet-dark border border-white/20 rounded-xl relative max-w-[380px]"
     >
+      <div className=" absolute flex justify-end top-2.5 right-2.5">
+        <AssessmentReview assessment={product.assessment} />
+      </div>
       <div className="h-48 w-full relative">
         <Image
           src={product.imagem}
