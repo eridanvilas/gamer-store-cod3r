@@ -70,12 +70,13 @@ Adicione as variáveis de ambiente necessárias (como conexão do banco de dados
    npx prisma migrate dev
 5. Inicie o servidor de desenvolvimento:
    ``` bash
-    npm rum dev
+   npm run dev
 6. Acesse a aplicação:
   Acesse o aplicativo no navegador através da URL: http://localhost:3000.
 
 
 Scripts Disponíveis
+   ``` bash
   npm run dev: Inicia o servidor de desenvolvimento.
   npm run build: Constrói a aplicação para produção.
   npm start: Inicia o servidor em modo de produção.
